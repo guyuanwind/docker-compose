@@ -1,0 +1,28 @@
+version: '3.2'
+
+services:
+  publish-helper:
+    image: sertion1126/publish-helper:latest
+    hostname: publish-helper
+    container_name: publish-helper
+    restart: always
+    networks:
+      - publish-helper-network
+    environment:
+      - API_PORT=15372
+      - NGINX_PORT=15373
+    volumes:
+      # 配置信息
+      - ./static:/app/static
+      # 临时目录（种子，截图）
+      - ./temp:/app/temp
+     # 媒体目录
+      - ./volume/media:/app/media
+    ports:
+      - "15372:15372"
+      - "15373:15373"
+
+networks:
+  publish-helper-network:
+    driver: bridge
+
