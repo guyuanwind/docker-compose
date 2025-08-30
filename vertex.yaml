@@ -1,0 +1,15 @@
+services:
+  vertex:
+    image: lswl/vertex:stable
+    container_name: vertex
+    network_mode: "host"  # 使用 host 网络模式
+    environment:
+      - TZ=Asia/Shanghai
+      - PORT=3000           # 将 HTTP 服务端口修改为 4000
+      - HTTPS_ENABLE=false   # 不启用 HTTPS (可以根据需要修改为 true，并指定 HTTPS_PORT)
+      - REDISPORT=6379       # 内部 Redis 服务端口
+      - PUID=0               # PUID（根据需要设置）
+      - PGID=0               # PGID（根据需要设置）
+    volumes:
+      - /vol1/1000/docker/vertex:/vertex
+    restart: always
