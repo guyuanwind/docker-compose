@@ -3,8 +3,7 @@ docker run -d \
   --network host \
   -e TZ=Asia/Shanghai \
   -e PORT=4000 \
-  -e HTTPS_ENABLE=true \
-  -e HTTPS_PORT=4443 \
+  -e HTTPS_ENABLE=false \
   -e REDISPORT=6379 \
   -e PUID=0 \
   -e PGID=0 \
